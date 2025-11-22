@@ -14,7 +14,7 @@ public class MonthInfo {
             ru.teamscore.core.MonthInfo monthInfo =
                 new ru.teamscore.core.MonthInfo(LocalDate.of(date[0], date[1],
                     date[2]));
-            System.out.printf("| %20s | %20s | %20s | %20s | %20s | %20s | %20s|%n",
+            System.out.printf("| %16s | %16s | %16s | %16s | %16s | %16s | %16s|%n",
                 monthInfo.time(),
                 monthInfo.getMonthName(),
                 monthInfo.getMonthNumber(), monthInfo.getFirstDayNameOfMonth(),

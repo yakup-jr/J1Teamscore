@@ -12,32 +12,19 @@ public class SignRepetition {
 
         int maxCount = 0;
         int currentCount = 0;
-        DigitType currentType = DigitType.POSITIVE;
+        int prevChangeValue = 0;
 
-        for (int i = 0; i < values.length; i++) {
-            if (values[i] > 0 && currentType == DigitType.POSITIVE) {
-                currentCount++;
-            } else if (values[i] > 0 && currentType != DigitType.POSITIVE) {
+        for (int value : values) {
+            if ((value > 0 && prevChangeValue < 1) || (value < 0 && prevChangeValue > -1) ||
+                (value == 0 && prevChangeValue != 0)) {
                 maxCount = Math.max(maxCount, currentCount);
-                currentCount = 1;
-                currentType = DigitType.POSITIVE;
-            } else if (values[i] < 0 && currentType == DigitType.NEGATIVE) {
-                currentCount++;
-            } else if (values[i] < 0 && currentType != DigitType.NEGATIVE) {
-                maxCount = Math.max(maxCount, currentCount);
-                currentCount = 1;
-                currentType = DigitType.NEGATIVE;
-            } else if (values[i] == 0 && currentType == DigitType.ZERO) {
-                currentCount++;
-            } else if (values[i] == 0 && currentType != DigitType.ZERO) {
-                maxCount = Math.max(maxCount, currentCount);
-                currentCount = 1;
-                currentType = DigitType.ZERO;
+                prevChangeValue = value;
+                currentCount = 0;
             }
+            currentCount++;
         }
         maxCount = Math.max(maxCount, currentCount);
 
         return maxCount;
     }
-
 }

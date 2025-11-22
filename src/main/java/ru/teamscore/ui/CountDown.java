@@ -1,8 +1,14 @@
 package ru.teamscore.ui;
 
+import ru.teamscore.core.Countdown;
+
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
+
+import static ru.teamscore.util.RussianPluralizer.formatUnitWithDeclension;
 
 public class CountDown {
 
@@ -14,7 +20,16 @@ public class CountDown {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
         LocalDateTime to = LocalDateTime.parse(sc.nextLine(), formatter);
 
-        System.out.println(ru.teamscore.core.Countdown.calculateBefore(LocalDateTime.now(), to));
+        Duration duration = Countdown.calculateBefore(LocalDateTime.now(), to);
+        long days = duration.toDays();
+        long hours = duration.toHours() - 24 * days;
+        long minutes = duration.toMinutes() - 60 * hours - 24 * 60 * days;
+
+        String daysWithCase = formatUnitWithDeclension(days, ChronoUnit.DAYS);
+        String hoursWithCase = formatUnitWithDeclension(hours, ChronoUnit.HOURS);
+        String minutesWithCase = formatUnitWithDeclension(minutes, ChronoUnit.MINUTES);
+
+        System.out.printf("Осталось: %s %s %s%n", daysWithCase, hoursWithCase, minutesWithCase);
     }
 
 }

@@ -19,11 +19,11 @@ public class Rounding {
         valuesMathRoundingMethods.put("Math.ceil", new ArrayList<>());
         valuesMathRoundingMethods.put("Math.floor", new ArrayList<>());
         valuesMathRoundingMethods.put("Math.rint", new ArrayList<>());
-        for (int i = 0; i < values.length; i++) {
-            valuesMathRoundingMethods.get("Math.round").add((double) Math.round(values[i]));
-            valuesMathRoundingMethods.get("Math.ceil").add(Math.ceil(values[i]));
-            valuesMathRoundingMethods.get("Math.floor").add(Math.floor(values[i]));
-            valuesMathRoundingMethods.get("Math.rint").add(Math.rint(values[i]));
+        for (double value : values) {
+            valuesMathRoundingMethods.get("Math.round").add((double) Math.round(value));
+            valuesMathRoundingMethods.get("Math.ceil").add(Math.ceil(value));
+            valuesMathRoundingMethods.get("Math.floor").add(Math.floor(value));
+            valuesMathRoundingMethods.get("Math.rint").add(Math.rint(value));
         }
         return valuesMathRoundingMethods;
     }

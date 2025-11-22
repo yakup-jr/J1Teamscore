@@ -3,13 +3,7 @@ package ru.teamscore.core;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ArrayStatistics {
-    private final int[] values;
-
-    public ArrayStatistics(int[] values) {
-        this.values = values;
-    }
-
+public record ArrayStatistics(int[] values) {
     public int[] mode() {
         Map<Integer, Integer> valuesCount = new HashMap<>();
         List<Integer> result = new ArrayList<>();
@@ -111,5 +105,24 @@ public class ArrayStatistics {
             }
         }
         return sampleArray;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof ArrayStatistics that)) return false;
+
+        return Arrays.equals(values, that.values);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(values);
+    }
+
+    @Override
+    public String toString() {
+        return "ArrayStatistics{" +
+            "values=" + Arrays.toString(values) +
+            '}';
     }
 }
