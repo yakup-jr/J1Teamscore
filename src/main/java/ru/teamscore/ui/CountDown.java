@@ -10,8 +10,16 @@ import java.util.Scanner;
 
 import static ru.teamscore.util.RussianPluralizer.formatUnitWithDeclension;
 
+/**
+ * The type Count down.
+ */
 public class CountDown {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.printf("Обратный отсчет%n" +
             "Формат ввода: dd.MM.yyyy HH:mm" +

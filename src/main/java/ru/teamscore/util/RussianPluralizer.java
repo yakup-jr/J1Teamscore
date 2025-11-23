@@ -2,6 +2,9 @@ package ru.teamscore.util;
 
 import java.time.temporal.ChronoUnit;
 
+/**
+ * The type Russian pluralizer.
+ */
 public class RussianPluralizer {
     private static final String[] minutes = {"минута", "минуты", "минут"};
     private static final String[] hours = {"час", "часа", "часов"};
@@ -10,6 +13,13 @@ public class RussianPluralizer {
     private RussianPluralizer() {
     }
 
+    /**
+     * Format unit with declension string.
+     *
+     * @param date the date
+     * @param unit the unit
+     * @return the string
+     */
     public static String formatUnitWithDeclension(long date, ChronoUnit unit) {
         if (date < 1) {
             return "";

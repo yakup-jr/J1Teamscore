@@ -3,11 +3,19 @@ package ru.teamscore.ui;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The type Rounding.
+ */
 public class Rounding {
 
     private static final String division =
         "|---------------------|----------------------|----------------------|---------------------|";
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         Map<String, List<Double>> values = ru.teamscore.core.Rounding.calculate();
         System.out.println(division);

@@ -2,8 +2,16 @@ package ru.teamscore.ui;
 
 import java.time.LocalDate;
 
+/**
+ * The type Month info.
+ */
 public class MonthInfo {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         int[][] dates = {
             {2023, 11, 12},

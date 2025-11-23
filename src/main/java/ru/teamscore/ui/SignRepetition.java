@@ -5,8 +5,16 @@ import ru.teamscore.util.RandomGenerator;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * The type Sign repetition.
+ */
 public class SignRepetition {
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         System.out.println("Введите количество случайных чисел: ");
         Scanner sc = new Scanner(System.in);

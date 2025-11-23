@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The type Rounding.
+ */
 public class Rounding {
 
     private static final double[] values =
@@ -13,6 +16,11 @@ public class Rounding {
     private Rounding() {
     }
 
+    /**
+     * Calculate map.
+     *
+     * @return the map
+     */
     public static Map<String, List<Double>> calculate() {
         Map<String, List<Double>> valuesMathRoundingMethods = new HashMap<>();
         valuesMathRoundingMethods.put("Math.round", new ArrayList<>());

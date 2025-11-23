@@ -3,7 +3,15 @@ package ru.teamscore.core;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * The type Array statistics.
+ */
 public record ArrayStatistics(int[] values) {
+    /**
+     * Mode int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] mode() {
         Map<Integer, Integer> valuesCount = new HashMap<>();
         List<Integer> result = new ArrayList<>();
@@ -23,6 +31,11 @@ public record ArrayStatistics(int[] values) {
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
+    /**
+     * Median double.
+     *
+     * @return the double
+     */
     public double median() {
         if (values.length == 0) {
             return Double.NaN;
@@ -38,6 +51,11 @@ public record ArrayStatistics(int[] values) {
         }
     }
 
+    /**
+     * Average double.
+     *
+     * @return the double
+     */
     public double average() {
         if (values.length == 0) {
             return Double.NaN;
@@ -46,6 +64,11 @@ public record ArrayStatistics(int[] values) {
         return Arrays.stream(values).average().orElse(0.0);
     }
 
+    /**
+     * Variance double.
+     *
+     * @return the double
+     */
     public double variance() {
         double average = average();
         double result = 0;
@@ -57,6 +80,11 @@ public record ArrayStatistics(int[] values) {
         return result / values.length;
     }
 
+    /**
+     * Geometric mean double.
+     *
+     * @return the double
+     */
     public double geometricMean() {
         double result = 1;
 
@@ -67,6 +95,11 @@ public record ArrayStatistics(int[] values) {
         return Math.pow(result, (double) 1 / values.length);
     }
 
+    /**
+     * Shuffle int [ ].
+     *
+     * @return the int [ ]
+     */
     public int[] shuffle() {
         int[] shuffledArray = new int[values.length];
         int[] possibleIndexes = new int[values.length];
@@ -85,6 +118,12 @@ public record ArrayStatistics(int[] values) {
         return shuffledArray;
     }
 
+    /**
+     * Sample int [ ].
+     *
+     * @param length the length
+     * @return the int [ ]
+     */
     public int[] sample(int length) {
         if (values.length == 0) {
             return new int[0];

@@ -2,6 +2,9 @@ package ru.teamscore.core;
 
 import java.util.Objects;
 
+/**
+ * The type Element.
+ */
 public class Element {
     private final Object value;
     private final int priority;
@@ -12,14 +15,31 @@ public class Element {
     }
 
 
+    /**
+     * Gets value.
+     *
+     * @return the value
+     */
     public Object getValue() {
         return value;
     }
 
+    /**
+     * Gets priority.
+     *
+     * @return the priority
+     */
     public int getPriority() {
         return priority;
     }
 
+    /**
+     * Value of element.
+     *
+     * @param value    the value
+     * @param priority the priority
+     * @return the element
+     */
     public static Element valueOf(Object value, int priority) {
         if (value == null) {
             throw new IllegalArgumentException("value cant be null");

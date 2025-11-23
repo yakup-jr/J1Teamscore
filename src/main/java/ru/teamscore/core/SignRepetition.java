@@ -1,10 +1,19 @@
 package ru.teamscore.core;
 
+/**
+ * The type Sign repetition.
+ */
 public class SignRepetition {
 
     private SignRepetition() {
     }
 
+    /**
+     * Count digit sign in a row int.
+     *
+     * @param values the values
+     * @return the int
+     */
     public static int countDigitSignInARow(int[] values) {
         if (values.length == 0) {
             return 0;
