@@ -21,15 +21,20 @@ public class CountDown {
         LocalDateTime to = LocalDateTime.parse(sc.nextLine(), formatter);
 
         Duration duration = Countdown.calculateBefore(LocalDateTime.now(), to);
-        long days = duration.toDays();
-        long hours = duration.toHours() - 24 * days;
-        long minutes = duration.toMinutes() - 60 * hours - 24 * 60 * days;
 
-        String daysWithCase = formatUnitWithDeclension(days, ChronoUnit.DAYS);
-        String hoursWithCase = formatUnitWithDeclension(hours, ChronoUnit.HOURS);
-        String minutesWithCase = formatUnitWithDeclension(minutes, ChronoUnit.MINUTES);
+        if (duration.isZero()) {
+            System.out.println("Уже наступило!");
+        } else {
+            long days = duration.toDays();
+            long hours = duration.toHours() - 24 * days;
+            long minutes = duration.toMinutes() - 60 * hours - 24 * 60 * days;
 
-        System.out.printf("Осталось: %s %s %s%n", daysWithCase, hoursWithCase, minutesWithCase);
+            String daysWithCase = formatUnitWithDeclension(days, ChronoUnit.DAYS);
+            String hoursWithCase = formatUnitWithDeclension(hours, ChronoUnit.HOURS);
+            String minutesWithCase = formatUnitWithDeclension(minutes, ChronoUnit.MINUTES);
+
+            System.out.printf("Осталось: %s %s %s%n", daysWithCase, hoursWithCase, minutesWithCase);
+        }
     }
 
 }
